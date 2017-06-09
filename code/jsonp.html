@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+    </style>
+    <script id="script"></script>
+    <script>
+        function show(json){
+            alert(json.s);
+        }
+        window.onload = function(){
+            var oTxt = document.getElementById('txt');
+
+            oTxt.onkeyup = function(){
+                var oScript = document.getElementById('script');
+                oScript.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=a&cb=show';
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="text"  id="txt">
+<div id="div"></div>
+</body>
+</html>

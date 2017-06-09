@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+    </style>
+
+    <script>
+        function show(json){
+            alert(json.s);
+        }
+        window.onload = function(){
+            var oTxt = document.getElementById('txt');
+            oTxt.onkeyup = function(){
+                var oScript = document.createElement('script');
+                oScript.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+oTxt.value+'&cb=show';
+                var oHead = document.getElementsByTagName('head')[0];
+                oHead.appendChild(oScript);
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="text"  id="txt">
+<div id="div"></div>
+</body>
+</html>

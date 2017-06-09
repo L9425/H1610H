@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function jsonp(url, data, success, cbName) {
+            var fnName = 'show' + Math.random();
+            fnName = fnName.replace('.', '');
+            window[fnName] = function (json) {
+                success && success(json);
+            };
+            data[cbName] = fnName;
+            var arr = [];
+            for (var name in data) {
+                arr.push(name + '=' + data[name]);
+            }
+            var oScript = document.createElement('script');
+            oScript.src = url + '?' + arr.join('&');
+            var oHead = document.getElementsByTagName('head')[0];
+            oHead.appendChild(oScript);
+        }
+        window.onload = function () {
+            var oTxt = document.getElementById('txt');
+
+            oTxt.onkeyup = function () {
+                jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su', {
+                            wd: oTxt.value
+                        }, function (json) {
+                            document.getElementById('div').innerHTML = json.s;
+                        }, 'callback'
+                );
+            }
+        };
+
+    </script>
+</head>
+<body>
+<input type="text" id="txt">
+<div id="div"></div>
+</body>
+</html>
